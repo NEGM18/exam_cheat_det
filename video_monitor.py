@@ -194,10 +194,10 @@ def monitor_video(log_callback, frame_callback=None, use_recorded=False):
             cv2.rectangle(frame, (0, 0), (frame.shape[1]-1, frame.shape[0]-1), (0, 0, 255), 2)
             log_callback(f"Potential cheating detected! (Confidence: {avg_prediction:.3f})")
 
-        # cv2.imshow("Video Monitor", frame)
-        # if cv2.waitKey(1) & 0xFF == ord('q'):
-        #     log_callback("Monitoring stopped by user.")
-        #     break
+        cv2.imshow("Video Monitor", frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            log_callback("Monitoring stopped by user.")
+            break
 
         if frame_callback is not None:
             frame_callback(frame)
